@@ -1,0 +1,14 @@
+Source: rtl8723ds-bt
+Section: unknown
+Priority: optional
+Maintainer: Ben Young <software@nextthing.co>
+Build-Depends: debhelper (>= 9), dh-systemd (>=10.2.5)
+Standards-Version: 3.9.8
+Homepage: https://github.com/nextthingco
+
+Package: rtl8723ds-bt
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: startup and firmware for rtl8723ds bluetooth
+ This package provides startup scripts and firmware for the rtl8723ds bluetooth
+ devices.

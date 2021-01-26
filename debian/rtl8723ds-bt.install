@@ -1,0 +1,7 @@
+bt_rtk_hciattach@.service	lib/systemd/system/
+
+rtk_hciattach/rtk_hciattach	sbin/
+bt_reset			sbin/
+
+8723D/rtl8723d_fw		lib/firmware/rtlbt/
+8723D/rtl8723d_config		lib/firmware/rtlbt/

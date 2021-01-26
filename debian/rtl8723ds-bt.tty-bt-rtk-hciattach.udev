@@ -1,0 +1,2 @@
+SUBSYSTEM=="tty", ENV{DEVNAME}=="/dev/ttyS2", ACTION=="add", TAG+="systemd", \
+	ENV{SYSTEMD_WANTS}="bt_rtk_hciattach@$name.service"

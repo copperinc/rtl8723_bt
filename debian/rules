@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/buildflags.mk
+
+DEB_BUILD_GNU_TYPE := $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+DEB_HOST_GNU_TYPE  := $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
+	CC=$(DEB_HOST_GNU_TYPE)-gcc
+endif
+
+export CC
+
+PACKAGE = rtl8723ds-bt
+
+%:
+	dh $@ --with-systemd
+
+
+override_dh_auto_build:
+	$(MAKE) -C rtk_hciattach CC=$(CC)
+
+override_dh_auto_install:
+	dh_installudev --name=tty-bt-rtk-hciattach --priority=99
